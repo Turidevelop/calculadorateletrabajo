@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-# teletrabajo.py
+# main.py
 # Programa Tkinter para convertir teletrabajo a "días" de jornada
 # Autor: Turidevelop
 # Fecha: 2025
-
+import sys, os
 import tkinter as tk
 from tkinter import ttk, messagebox
 
@@ -67,9 +67,17 @@ def limpiar():
     result_decimal_var.set("")
     result_breakdown_var.set("")
 
+def resource_path(relative_path):
+    try:
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+    return os.path.join(base_path, relative_path)
+
 # --- Interfaz gráfica ---
 root = tk.Tk()
 root.title("Convertir teletrabajo a días de jornada")
+root.iconphoto(True, tk.PhotoImage(file=resource_path("turidevicon.png")))  # Asegúrate de tener un icono.ico en el mismo directorio
 root.resizable(False, False)
 padx = 8
 pady = 6
